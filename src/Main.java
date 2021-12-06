@@ -14,6 +14,8 @@ public class Main implements Runnable {
 
     public void init(){
         window = new Window(WIDTH, HEIGHT, "Game");
+        window.setBackgroundColor();
+        window.setFullScreen(true);
         window.create();
     }
 
@@ -21,10 +23,16 @@ public class Main implements Runnable {
     @Override
     public void run() {
         init();
-        while(!window.shouldClose()){
+        while(!window.shouldClose() && !Input.isKeyDown(GLFW.GLFW_KEY_ESCAPE )){
             update();
             render();
-            if(Input.isKeyDown(GLFW.GLFW_KEY_ESCAPE)) return;
+            if(Input.isKeyDown(GLFW.GLFW_KEY_F11)) {
+                window.setFullScreen(!window.isFullScreen());
+            }
+
+            if(Input.isKeyDown(GLFW.GLFW_KEY_F12)){
+                window.isFullScreen();
+            }
         }
         window.destroy();
     }
