@@ -18,6 +18,7 @@ public class Material {
         this.path = path;
     }
 
+    // TODO: 2022-01-14 add comments 
     public void create() {
         try {
             texture = TextureLoader.getTexture(path.split("[.]")[1], Material.class.getResourceAsStream(path), GL11.GL_NEAREST);
