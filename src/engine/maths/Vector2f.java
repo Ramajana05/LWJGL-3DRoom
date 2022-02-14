@@ -1,5 +1,12 @@
 package engine.maths;
 
+/**
+ *
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
+
 public class Vector2f {
     private float x, y;
 
@@ -12,14 +19,6 @@ public class Vector2f {
         return new Vector2f(vector1.getX() + vector2.getX(), vector1.getY() + vector2.getY());
     }
 
-    public static Vector2f subtract(Vector2f vector1, Vector2f vector2){
-        return new Vector2f(vector1.getX() - vector2.getX(), vector1.getY() - vector2.getY());
-    }
-
-    public static Vector2f multiply(Vector2f vector1, Vector2f vector2){
-        return new Vector2f(vector1.getX() * vector2.getX(), vector1.getY() * vector2.getY());
-    }
-
     public static Vector2f divde(Vector2f vector1, Vector2f vector2){
         return new Vector2f(vector1.getX() / vector2.getX(), vector1.getY() / vector2.getY());
     }
@@ -27,17 +26,6 @@ public class Vector2f {
     //returns how long the vector is
     public static float length(Vector2f vector){
         return (float) Math.sqrt(vector.getX() * vector.getX() + vector.getY() * vector.getY());
-    }
-
-    //Useful for direction. To find the direction of the Vector.
-    public static Vector2f normalize(Vector2f vector){
-        float len = Vector2f.length(vector);
-        return Vector2f.divde(vector, new Vector2f(len, len));
-    }
-
-    //how much is a vector pointing away or towards another one. Useful for light
-    public static float dot(Vector2f vector1, Vector2f vector2){
-        return vector1.getX() * vector2.getX() +  vector1.getY() * vector2.getY();
     }
 
     @Override
@@ -69,15 +57,8 @@ public class Vector2f {
         return x;
     }
 
-    public void setX(float x) {
-        this.x = x;
-    }
-
     public float getY() {
         return y;
     }
 
-    public void setY(float y) {
-        this.y = y;
-    }
 }

@@ -1,10 +1,13 @@
 package engine.maths;
 
-import engine.graphics.Material;
-import engine.graphics.Vertex;
-import org.lwjgl.system.CallbackI;
-
 import java.util.Arrays;
+
+/**
+ *
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
 
 public class Matrix4f {
     public static final int SIZE = 4;
@@ -127,7 +130,6 @@ public class Matrix4f {
                         matrix.get(i, 3) * other.get(3, j));
             }
         }
-
         return result;
     }
 

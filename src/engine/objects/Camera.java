@@ -4,6 +4,12 @@ import engine.io.Input;
 import engine.maths.Vector3f;
 import org.lwjgl.glfw.GLFW;
 
+/**
+ * This class is the Camera. We are basically the camera, which is moving.
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
 
 public class Camera {
     private Vector3f position, rotation;
@@ -15,6 +21,9 @@ public class Camera {
         this.rotation = rotation;
     }
 
+    /**
+     * Movement is handled here. With W,A,S,D and the mouse movement
+     */
     public void update(){
         newMouseX = Input.getMouseX();
         newMouseY = Input.getMouseY();

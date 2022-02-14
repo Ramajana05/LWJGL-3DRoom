@@ -1,5 +1,12 @@
 package engine.maths;
 
+/**
+ *
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
+
 public class Vector3f {
     private float x, y, z;
 
@@ -19,32 +26,9 @@ public class Vector3f {
         return new Vector3f(vector1.getX() + vector2.getX(), vector1.getY() + vector2.getY(), vector1.getZ() + vector2.getZ());
     }
 
-    public static Vector3f subtract(Vector3f vector1, Vector3f vector2){
-        return new Vector3f(vector1.getX() - vector2.getX(), vector1.getY() - vector2.getY(), vector1.getZ() - vector2.getZ());
-    }
-
-    public static Vector3f multiply(Vector3f vector1, Vector3f vector2){
-        return new Vector3f(vector1.getX() * vector2.getX(), vector1.getY() * vector2.getY(), vector1.getZ() * vector2.getZ());
-    }
-
-    public static Vector3f divde(Vector3f vector1, Vector3f vector2){
-        return new Vector3f(vector1.getX() / vector2.getX(), vector1.getY() / vector2.getY(), vector1.getZ() / vector2.getZ());
-    }
-
     //returns how long the vector is
     public static float length(Vector3f vector){
         return (float) Math.sqrt(vector.getX() * vector.getX() + vector.getY() * vector.getY() + vector.getZ() * vector.getZ());
-    }
-
-    //Useful for direction. To find the direction of the Vector.
-    public static Vector3f normalize(Vector3f vector){
-        float len = Vector3f.length(vector);
-        return Vector3f.divde(vector, new Vector3f(len, len, len));
-    }
-
-    //how much is a vector pointing away or towards another one. Useful for light
-    public static float dot(Vector3f vector1, Vector3f vector2){
-        return vector1.getX() * vector2.getX() +  vector1.getY() * vector2.getY() + vector1.getZ() * vector2.getZ();
     }
 
     @Override
@@ -80,16 +64,8 @@ public class Vector3f {
         return x;
     }
 
-    public void setX(float x) {
-        this.x = x;
-    }
-
     public float getY() {
         return y;
-    }
-
-    public void setY(float y) {
-        this.y = y;
     }
 
     public float getZ() {

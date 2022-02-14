@@ -1,6 +1,5 @@
 package engine.io;
 
-import engine.io.Input;
 import engine.maths.Matrix4f;
 import engine.maths.Vector3f;
 import org.lwjgl.glfw.GLFW;
@@ -10,7 +9,13 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 
 /**
- * Builds the Window for our Application
+ * This class builds the Window for our Application.
+ * The title is set here, the frames per Seconds can be seen.
+ * The background color of the window is being set here.
+ * Feature: make window full screen with F11
+ *
+ * @author: Ramajana Skopljak
+ * @version:
  */
 
 public class Window {
@@ -58,11 +63,8 @@ public class Window {
         GL11.glEnable(GL11.GL_DEPTH_TEST);
 
         createCallbacks();
-
         GLFW.glfwShowWindow(window);
-
         GLFW.glfwSwapInterval(1);
-
         time = System.currentTimeMillis();
     }
 
@@ -114,14 +116,23 @@ public class Window {
         GLFW.glfwTerminate();
     }
 
+    /**
+     * Sets background colorfor the window
+     * @param r
+     * @param g
+     * @param b
+     */
     public void setBackgroundColor(float r, float g, float b) {
         background.set(r, g, b);
     }
 
-    public boolean isFullscreen() {
-        return isFullscreen;
-    }
+    public boolean isFullscreen() {return isFullscreen;}
 
+    /**
+     * Sets the full screen mode.
+     * Gets the height and width of the window.
+     * @param isFullscreen
+     */
     public void setFullscreen(boolean isFullscreen) {
         this.isFullscreen = isFullscreen;
         isResized = true;
@@ -133,25 +144,13 @@ public class Window {
         }
     }
 
+    /**
+     * This helps us move our mouse in the window, for changing the view, without it leaving the window.
+     * It locks the cursor in our Window, so we can freely move it, like in video games.
+     * @param lock
+     */
     public void mouseState(boolean lock){
         GLFW.glfwSetInputMode(window, GLFW.GLFW_CURSOR, lock ? GLFW.GLFW_CURSOR_DISABLED : GLFW.GLFW_CURSOR_NORMAL);
-
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public long getWindow() {
-        return window;
     }
 
     public Matrix4f getProjectionMatrix() {

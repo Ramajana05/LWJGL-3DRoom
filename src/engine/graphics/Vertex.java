@@ -3,6 +3,13 @@ package engine.graphics;
 import engine.maths.Vector2f;
 import engine.maths.Vector3f;
 
+/**
+ * For Texture
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
+
 public class Vertex {
     private Vector3f position;
     private Vector2f textureCoord;
@@ -20,8 +27,5 @@ public class Vertex {
         return textureCoord;
     }
 
-    public void setTextureCoord(Vector2f textureCoord) {
-        this.textureCoord = textureCoord;
-    }
 }
 

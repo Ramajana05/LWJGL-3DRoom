@@ -3,10 +3,22 @@ package engine.utils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
+
+/**
+ * Class for helper-funtions. (in combination with the Shader class)
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
 
 public class FileUtils {
 
+    /**
+     * loads the path needed.
+     * @param path
+     * @return
+     * @throws IOException
+     */
 
     public static String loadAsString(String path) throws IOException {
         StringBuilder result = new StringBuilder();

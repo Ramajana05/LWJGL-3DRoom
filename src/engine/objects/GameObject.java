@@ -3,6 +3,13 @@ package engine.objects;
 import engine.graphics.Mesh;
 import engine.maths.Vector3f;
 
+/**
+ * This class represents each GameObject (for example furniture)
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
+
 public class GameObject {
     private Vector3f position, rotation, scale;
     private Mesh mesh;
@@ -16,7 +23,7 @@ public class GameObject {
 
     //Animation
     public void update() {
-        position.setZ(position.getZ() -0.05f);
+        position.setZ(position.getZ() - 0.05f);
     }
 
     public Vector3f getPosition() {
@@ -35,3 +42,4 @@ public class GameObject {
         return mesh;
     }
 }
+

@@ -2,7 +2,12 @@ package engine.io;
 
 import org.lwjgl.glfw.*;
 
-import java.sql.Array;
+/**
+ * This class handles the mouse and Keyboard inputs.
+ *
+ * @author: Ramajana Skopljak
+ * @version:
+ */
 
 public class Input {
     private static boolean[] keys = new boolean[GLFW.GLFW_KEY_LAST];
@@ -58,20 +63,13 @@ public class Input {
         mouseScroll.free();
     }
 
+    //getters
     public static double getMouseX() {
         return mouseX;
     }
 
     public static double getMouseY() {
         return mouseY;
-    }
-
-    public static double getScrollX() {
-        return scrollX;
-    }
-
-    public static double getScrollY() {
-        return scrollY;
     }
 
     public GLFWKeyCallback getKeyboardCallback() {

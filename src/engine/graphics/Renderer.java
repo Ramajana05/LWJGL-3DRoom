@@ -10,14 +10,27 @@ import org.lwjgl.opengl.GL30;
 import engine.maths.Matrix4f;
 import engine.objects.GameObject;
 
+/**
+ * This Renderer class, draws Objects with Triangles
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
+
 public class Renderer {
     private Shader shader;
     private Window window;
 
     public Renderer(Window window, Shader shader) {
-        this.shader = shader; this.window = window;
+        this.shader = shader;
+        this.window = window;
     }
 
+    /**
+     * Renders the Gameobject.
+     * @param object
+     * @param camera
+     */
     public void renderMesh(GameObject object, Camera camera) {
         GL30.glBindVertexArray(object.getMesh().getVAO());
         GL30.glEnableVertexAttribArray(0);
@@ -25,7 +38,7 @@ public class Renderer {
         GL30.glEnableVertexAttribArray(2);
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, object.getMesh().getIBO());
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
-        GL13.glBindTexture(GL11.GL_TEXTURE_2D, object.getMesh().getMaterial().getTextureID());
+        GL13.glBindTexture(GL11.GL_TEXTURE_2D, object.getMesh().getMaterial().getMyTextureID());
         shader.bind();
         shader.setUniform("model", Matrix4f.transform(object.getPosition(), object.getRotation(), object.getScale()));
         shader.setUniform("view", Matrix4f.view(camera.getPosition(), camera.getRotation()));

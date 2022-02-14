@@ -9,11 +9,19 @@ import org.lwjgl.system.MemoryUtil;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+/**
+ * This class is saying in which order to draw each Vertex,
+ * for either loading a model or creating one by ourselves.
+ *
+ * @author: Ramajana Skopljak
+ * @version: 1.0
+ */
+
 public class Mesh {
     private Vertex[] vertices;
     private int[] indices;
     private Material material;
-    private int vao, pbo, ibo, cbo, tbo;
+    private int vao, pbo, ibo, tbo; //vertex array object = vao, position buffer objects = pbo, indices buffer objects = ibo
 
     public Mesh(Vertex[] vertices, int[] indices, Material material) {
         this.vertices = vertices;
@@ -21,6 +29,7 @@ public class Mesh {
         this.material = material;
     }
 
+    //Create buffer objects which contain the data.
     public void create() {
         material.create();
 
@@ -57,6 +66,7 @@ public class Mesh {
         GL15.glBindBuffer(GL15.GL_ELEMENT_ARRAY_BUFFER, 0);
     }
 
+    //Vertices are stored in the buffer Object
     private int storeData(FloatBuffer buffer, int index, int size) {
         int bufferID = GL15.glGenBuffers();
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, bufferID);
@@ -66,39 +76,22 @@ public class Mesh {
         return bufferID;
     }
 
+    //Always destroy
     public void destroy() {
         GL15.glDeleteBuffers(pbo);
-        GL15.glDeleteBuffers(cbo);
         GL15.glDeleteBuffers(ibo);
         GL15.glDeleteBuffers(tbo);
-
         GL30.glDeleteVertexArrays(vao);
-
         material.destroy();
     }
 
-    public Vertex[] getVertices() {
-        return vertices;
-    }
-
+    //getters
     public int[] getIndices() {
         return indices;
     }
 
     public int getVAO() {
         return vao;
-    }
-
-    public int getPBO() {
-        return pbo;
-    }
-
-    public int getCBO() {
-        return cbo;
-    }
-
-    public int getTBO() {
-        return tbo;
     }
 
     public int getIBO() {
