@@ -1,7 +1,6 @@
 # LWJGL-3DRoom 2020
 
-Creating the room of Zuul using the light weight java library. For a possible game.
-
+Creating the room of Zuul using the light weight java library.
 Includes:
 - Different kind of Object to simulate a room.
 - Tetxures to make it look realistic
